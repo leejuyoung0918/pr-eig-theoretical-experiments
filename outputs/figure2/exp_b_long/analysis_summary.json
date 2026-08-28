@@ -1,0 +1,109 @@
+{
+  "boundary_hit_rates": [
+    {
+      "boundary_hit_rate": 1.0,
+      "mean_trajectory_hit_rate": 1.0,
+      "range_end": 16384,
+      "range_start": 8192,
+      "total_hits": 8192000,
+      "total_rounds": 8192000,
+      "trajectories": 1000,
+      "trajectories_with_any_hit": 1000
+    },
+    {
+      "boundary_hit_rate": 1.0,
+      "mean_trajectory_hit_rate": 1.0,
+      "range_end": 32768,
+      "range_start": 16384,
+      "total_hits": 16384000,
+      "total_rounds": 16384000,
+      "trajectories": 1000,
+      "trajectories_with_any_hit": 1000
+    },
+    {
+      "boundary_hit_rate": 1.0,
+      "mean_trajectory_hit_rate": 1.0,
+      "range_end": 65536,
+      "range_start": 32768,
+      "total_hits": 32768000,
+      "total_rounds": 32768000,
+      "trajectories": 1000,
+      "trajectories_with_any_hit": 1000
+    }
+  ],
+  "classification": "Case B",
+  "classification_reason": "PR-EIG continues moving toward -1/4, but the pre-registered terminal criterion is not yet met.",
+  "terminal_derivative_slopes": [
+    {
+      "ci_high": -0.2574357015957862,
+      "ci_low": -0.25743573672382636,
+      "local_derivative": -0.25743572001401355,
+      "method": "PR-EIG",
+      "n": 65536
+    },
+    {
+      "ci_high": -0.4999973725451626,
+      "ci_low": -0.49999743645913786,
+      "local_derivative": -0.49999740581199104,
+      "method": "Exact-RC",
+      "n": 65536
+    },
+    {
+      "ci_high": -0.49999940354560873,
+      "ci_low": -0.4999994539921128,
+      "local_derivative": -0.4999994296522885,
+      "method": "Fisher-RC",
+      "n": 65536
+    }
+  ],
+  "terminal_half_window_slopes": [
+    {
+      "analysis": "half_window_local",
+      "bootstrap_mean": -0.2590728223276097,
+      "bootstrap_median": -0.2590728225863505,
+      "bootstrap_samples": 2000,
+      "ci_high": -0.25907279577040443,
+      "ci_low": -0.25907284621168797,
+      "difference_from_theory": -0.009072822327609698,
+      "fit_max_n": 65536,
+      "fit_min_n": 32768,
+      "method": "PR-EIG",
+      "n_points": 16,
+      "point_slope": -0.2590728222176598,
+      "r2": 0.9999961071802718,
+      "theory_slope": -0.25
+    },
+    {
+      "analysis": "half_window_local",
+      "bootstrap_mean": -0.4999868014990279,
+      "bootstrap_median": -0.49998680210693647,
+      "bootstrap_samples": 2000,
+      "ci_high": -0.4999867543182826,
+      "ci_low": -0.4999868446799204,
+      "difference_from_theory": 1.3198500972089189e-05,
+      "fit_max_n": 65536,
+      "fit_min_n": 32768,
+      "method": "Exact-RC",
+      "n_points": 16,
+      "point_slope": -0.49998680135094964,
+      "r2": 0.9999999999911652,
+      "theory_slope": -0.5
+    },
+    {
+      "analysis": "half_window_local",
+      "bootstrap_mean": -0.4999896625287722,
+      "bootstrap_median": -0.49998966304405057,
+      "bootstrap_samples": 2000,
+      "ci_high": -0.4999896256705856,
+      "ci_low": -0.49998969699267154,
+      "difference_from_theory": 1.0337471227805928e-05,
+      "fit_max_n": 65536,
+      "fit_min_n": 32768,
+      "method": "Fisher-RC",
+      "n_points": 16,
+      "point_slope": -0.49998966258067107,
+      "r2": 0.9999999999935675,
+      "theory_slope": -0.5
+    }
+  ]
+}

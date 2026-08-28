@@ -1,0 +1,18 @@
+{
+  "T_max": 20,
+  "config_hash": "83589dd8a94eb695",
+  "eig_evaluation_cost_definition": "equivalent uncached objective evaluations represented by library lookups; online_eig_evaluation_cost is zero after table construction",
+  "elapsed_seconds": 0.037727707996964455,
+  "environment_count": 2,
+  "label": "particle_convergence_2000",
+  "lapse_values": [
+    0.0
+  ],
+  "library_path": "/Users/leejuyoung/Desktop/2026/\u1102\u1172\u1105\u1175\u11b8\u1109\u1173/figure2_experiments/outputs/experiment1/quick/randomized/cache/resolution_library_9ac85be54b15e377.npz",
+  "particle_count": 2000,
+  "posterior": "projected particle ADF: normalized log weights on a standardized directional particle cloud, weighted directional moments, rank-one Gaussian moment projection, equal-weight reset every query",
+  "profile": "quick",
+  "resolution_design": "exact Gaussian directional EIG/Fisher library with algebraically exact beta scaling",
+  "response_repetitions": 1,
+  "workers": 1
+}

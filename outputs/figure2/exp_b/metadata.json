@@ -1,0 +1,17 @@
+{
+  "N_max": 8192,
+  "cache_points": 600,
+  "common_random_numbers": true,
+  "config_hash": "88f8def3ac47d044",
+  "elapsed_seconds": 157.41110245900927,
+  "experiment": "B",
+  "fit_range_primary": [
+    512,
+    8192
+  ],
+  "mode": "paper",
+  "posterior_method": "Gaussian assumed-density filtering via exact Gauss-Hermite moment matching",
+  "quadrature_order": 128,
+  "trajectories": 1000,
+  "workers": 1
+}

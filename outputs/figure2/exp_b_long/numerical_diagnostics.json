@@ -1,0 +1,29 @@
+{
+  "Exact-RC": {
+    "aggregate_variance_increase_count": 0,
+    "cache_clip_count": 0,
+    "eig_nonpositive_count": 0,
+    "largest_aggregate_variance_increase": 0.0,
+    "probability_normalization_failure_count": 0,
+    "probability_zero_count": 0,
+    "variance_floor_count": 0
+  },
+  "Fisher-RC": {
+    "aggregate_variance_increase_count": 0,
+    "cache_clip_count": 0,
+    "eig_nonpositive_count": 0,
+    "largest_aggregate_variance_increase": 0.0,
+    "probability_normalization_failure_count": 0,
+    "probability_zero_count": 0,
+    "variance_floor_count": 0
+  },
+  "PR-EIG": {
+    "aggregate_variance_increase_count": 0,
+    "cache_clip_count": 0,
+    "eig_nonpositive_count": 0,
+    "largest_aggregate_variance_increase": 0.0,
+    "probability_normalization_failure_count": 0,
+    "probability_zero_count": 0,
+    "variance_floor_count": 0
+  }
+}

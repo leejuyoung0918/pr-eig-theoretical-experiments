@@ -1,0 +1,89 @@
+{
+  "a_beta": 1.0,
+  "a_fit_max": 0.01,
+  "a_fit_min": 0.0001,
+  "a_m": 5,
+  "a_sigma_max": 1.0,
+  "a_sigma_min": 0.0001,
+  "alpha_max": 20.0,
+  "alpha_min": 0.05,
+  "b_beta": 1.0,
+  "b_fit_starts": [
+    1000,
+    3000,
+    10000,
+    30000
+  ],
+  "b_m": 5,
+  "b_primary_fit_start": 10000,
+  "c_arities": [
+    3,
+    5,
+    7,
+    9
+  ],
+  "c_beta_max": 4.0,
+  "c_beta_min": 0.25,
+  "c_dimensions": [
+    2,
+    4,
+    8,
+    16
+  ],
+  "c_kappa_max": 100.0,
+  "c_kappa_min": 1.0,
+  "c_lapse_values": [
+    0.0,
+    0.05,
+    0.1
+  ],
+  "c_particle_counts": [
+    2000,
+    5000,
+    10000,
+    20000
+  ],
+  "c_primary_threshold": 0.25,
+  "c_s0_max": 2.0,
+  "c_s0_min": 0.5,
+  "c_tau_max": 16.0,
+  "c_tau_min": 0.0001,
+  "c_thresholds": [
+    0.5,
+    0.25,
+    0.1
+  ],
+  "methods": [
+    "PR-EIG",
+    "Exact-RC",
+    "Fisher-RC"
+  ],
+  "mode": "quick",
+  "physical_r_max": 10.0,
+  "physical_r_min": 0.0001,
+  "profile": {
+    "a_design_grid_points": 81,
+    "a_gh_order": 128,
+    "a_sigma_points": 41,
+    "b_batch_size": 10,
+    "b_bootstrap_samples": 200,
+    "b_checkpoint_count": 55,
+    "b_n_max": 3000,
+    "b_repetitions": 20,
+    "c_bootstrap_samples": 200,
+    "c_convergence_environments": 2,
+    "c_convergence_response_repetitions": 1,
+    "c_convergence_t_max": 20,
+    "c_environment_batch_size": 1,
+    "c_environments": 8,
+    "c_library_gh_order": 64,
+    "c_library_grid_points": 61,
+    "c_library_tau_points": 120,
+    "c_particles": 500,
+    "c_response_repetitions": 2,
+    "c_run_mismatch": true,
+    "c_t_max": 40,
+    "name": "quick"
+  },
+  "seed": 20260820
+}

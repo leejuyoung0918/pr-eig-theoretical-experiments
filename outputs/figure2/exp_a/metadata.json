@@ -1,0 +1,28 @@
+{
+  "M_main": 5,
+  "alpha_range": [
+    0.05,
+    20.0
+  ],
+  "beta_main": 1.0,
+  "config_hash": "88f8def3ac47d044",
+  "expanded_alpha_range": [
+    0.005,
+    200.0
+  ],
+  "experiment": "A",
+  "mode": "paper",
+  "physical_boundary_count": 0,
+  "physical_r_initial_range": [
+    0.0001,
+    10.0
+  ],
+  "pr_boundary_count": 91,
+  "quadrature_failures": 0,
+  "quadrature_order": 128,
+  "sigma_points": 121,
+  "sigma_range": [
+    0.0001,
+    1.0
+  ]
+}

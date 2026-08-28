@@ -1,0 +1,4 @@
+range_start,range_end,trajectories,total_hits,total_rounds,mean_trajectory_hit_rate,trajectories_with_any_hit,boundary_hit_rate
+8192,16384,1000,8192000,8192000,1.0,1000,1.0
+16384,32768,1000,16384000,16384000,1.0,1000,1.0
+32768,65536,1000,32768000,32768000,1.0,1000,1.0

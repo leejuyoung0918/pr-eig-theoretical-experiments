@@ -1,0 +1,45 @@
+{
+  "arity_counts": {
+    "3": 4,
+    "7": 1,
+    "9": 3
+  },
+  "beta_range": [
+    0.2962837888924374,
+    2.8466948101463787
+  ],
+  "boundary_hits": 0,
+  "censored_environment_method_rows": 36,
+  "censored_response_runs": 72,
+  "dimension_counts": {
+    "4": 2,
+    "8": 2,
+    "16": 4
+  },
+  "environments": 8,
+  "kappa_range": [
+    1.7947540103653268,
+    56.55119597515531
+  ],
+  "lapse_values": [
+    0.0,
+    0.05,
+    0.1
+  ],
+  "library_boundary_fraction_by_method": {
+    "Exact-RC": 0.0,
+    "Fisher-RC": 0.0,
+    "PR-EIG": 0.5875
+  },
+  "library_negative_eig_count": 0,
+  "maximum_weight_sum_error": 3.4416913763379853e-15,
+  "minimum_covariance_eigenvalue": 0.0001897845349820456,
+  "minimum_ess_fraction": 0.0020003251587301795,
+  "minimum_unique_ancestor_fraction": 1.0,
+  "paired_environment_parameter_failures": 0,
+  "probability_normalization_failures": 0,
+  "rows": 144,
+  "tau_clip_count": 0,
+  "total_resampling_events": 5760,
+  "unexpected_nonfinite_numeric_values": 0
+}

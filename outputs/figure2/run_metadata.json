@@ -1,0 +1,144 @@
+{
+  "component_profiles": {
+    "experiment_a": "paper",
+    "experiment_b": "paper",
+    "experiment_c": "exhaustive"
+  },
+  "config": {
+    "alpha_max": 20.0,
+    "alpha_min": 0.05,
+    "beta_grid": [
+      0.5,
+      1.0,
+      2.0,
+      4.0,
+      8.0
+    ],
+    "c_dimensions": [
+      4,
+      8,
+      16
+    ],
+    "c_length": 1.0,
+    "c_m_values": [
+      2,
+      4,
+      8,
+      16
+    ],
+    "c_main_d": 8,
+    "c_main_m": 4,
+    "c_rounds_per_dimension": 8,
+    "cache_sigma_max": 1.5,
+    "cache_sigma_min": 1e-05,
+    "expanded_alpha_max": 200.0,
+    "expanded_alpha_min": 0.005,
+    "m_grid": [
+      2,
+      3,
+      5,
+      8
+    ],
+    "main_beta": 1.0,
+    "main_m": 5,
+    "mode": "paper",
+    "numerical_floor": 1e-22,
+    "physical_r_max": 10.0,
+    "physical_r_min": 0.0001,
+    "primary_sequential_fit_min": 512,
+    "primary_sigma_fit_max": 0.03,
+    "profile": {
+      "a_alpha_grid_points": 241,
+      "a_gh_order": 128,
+      "a_r_grid_points": 281,
+      "a_run_robustness": true,
+      "a_sigma_min": 0.0001,
+      "a_sigma_points": 121,
+      "b_batch_size": 50,
+      "b_bootstrap_samples": 2000,
+      "b_cache_points": 600,
+      "b_design_grid_points": 201,
+      "b_gh_order": 128,
+      "b_grid_nodes": 16385,
+      "b_grid_validation_n_max": 512,
+      "b_grid_validation_trajectories": 8,
+      "b_n_max": 8192,
+      "b_trajectories": 1000,
+      "c_bootstrap_samples": 2000,
+      "c_macro_seeds": 20,
+      "c_targets_per_macro": 5000,
+      "name": "paper"
+    },
+    "quadrature_rtol": 2e-05,
+    "seed": 20260818,
+    "sequential_fit_windows": [
+      256,
+      512,
+      1024,
+      2048
+    ],
+    "sigma_fit_windows": [
+      0.1,
+      0.03,
+      0.01
+    ],
+    "sigma_max": 1.0
+  },
+  "config_hash": "88f8def3ac47d044",
+  "cpu_count": 8,
+  "created_local": "2026-08-18 15:52:52 +0900",
+  "created_unix": 1787035972.247127,
+  "elapsed_seconds": 203.79883066599723,
+  "git_commit": null,
+  "host": "ijuyeong-ui-MacBookPro.local",
+  "note": "Experiment C was independently extended to 1,000,000 targets per (d,M) after the full paper run to reduce rare-event tail variance.",
+  "numpy": "2.2.6",
+  "platform": "macOS-15.6.1-arm64-arm-64bit",
+  "processor": "arm",
+  "python": "3.10.8",
+  "results": {
+    "experiment_a_analysis": {
+      "robustness": "/Users/leejuyoung/Desktop/2026/\u1102\u1172\u1105\u1175\u11b8\u1109\u1173/figure2_experiments/outputs/figure2/exp_a/robustness.csv",
+      "slopes": "/Users/leejuyoung/Desktop/2026/\u1102\u1172\u1105\u1175\u11b8\u1109\u1173/figure2_experiments/outputs/figure2/exp_a/slopes.csv"
+    },
+    "experiment_a_run": {
+      "main": "/Users/leejuyoung/Desktop/2026/\u1102\u1172\u1105\u1175\u11b8\u1109\u1173/figure2_experiments/outputs/figure2/exp_a/raw/main.parquet",
+      "robustness": "/Users/leejuyoung/Desktop/2026/\u1102\u1172\u1105\u1175\u11b8\u1109\u1173/figure2_experiments/outputs/figure2/exp_a/raw/robustness.parquet",
+      "validation": "/Users/leejuyoung/Desktop/2026/\u1102\u1172\u1105\u1175\u11b8\u1109\u1173/figure2_experiments/outputs/figure2/exp_a/quadrature_validation.csv"
+    },
+    "experiment_b_analysis": {
+      "bootstrap": "/Users/leejuyoung/Desktop/2026/\u1102\u1172\u1105\u1175\u11b8\u1109\u1173/figure2_experiments/outputs/figure2/exp_b/bootstrap.csv",
+      "curve": "/Users/leejuyoung/Desktop/2026/\u1102\u1172\u1105\u1175\u11b8\u1109\u1173/figure2_experiments/outputs/figure2/exp_b/curve.csv",
+      "slopes": "/Users/leejuyoung/Desktop/2026/\u1102\u1172\u1105\u1175\u11b8\u1109\u1173/figure2_experiments/outputs/figure2/exp_b/slopes.csv"
+    },
+    "experiment_b_run": {
+      "cache": "/Users/leejuyoung/Desktop/2026/\u1102\u1172\u1105\u1175\u11b8\u1109\u1173/figure2_experiments/outputs/figure2/cache/sequential_design_ad5b990bb1a735d9.npz",
+      "cache_validation": "/Users/leejuyoung/Desktop/2026/\u1102\u1172\u1105\u1175\u11b8\u1109\u1173/figure2_experiments/outputs/figure2/exp_b/cache_validation.csv",
+      "exact_grid_validation": "/Users/leejuyoung/Desktop/2026/\u1102\u1172\u1105\u1175\u11b8\u1109\u1173/figure2_experiments/outputs/figure2/exp_b/exact_grid_validation.csv",
+      "raw": "/Users/leejuyoung/Desktop/2026/\u1102\u1172\u1105\u1175\u11b8\u1109\u1173/figure2_experiments/outputs/figure2/exp_b/raw/trajectories.parquet"
+    },
+    "experiment_c_analysis": {
+      "full_grid": "/Users/leejuyoung/Desktop/2026/\u1102\u1172\u1105\u1175\u11b8\u1109\u1173/figure2_experiments/outputs/figure2/exp_c/full_grid.csv",
+      "slopes": "/Users/leejuyoung/Desktop/2026/\u1102\u1172\u1105\u1175\u11b8\u1109\u1173/figure2_experiments/outputs/figure2/exp_c/slopes.csv"
+    },
+    "experiment_c_run": {
+      "raw": "/Users/leejuyoung/Desktop/2026/\u1102\u1172\u1105\u1175\u11b8\u1109\u1173/figure2_experiments/outputs/figure2/exp_c/raw/macro_summary.parquet"
+    },
+    "plotting": {
+      "a": "/Users/leejuyoung/Desktop/2026/\u1102\u1172\u1105\u1175\u11b8\u1109\u1173/figure2_experiments/outputs/figure2/figure2/figure2a.pdf",
+      "b": "/Users/leejuyoung/Desktop/2026/\u1102\u1172\u1105\u1175\u11b8\u1109\u1173/figure2_experiments/outputs/figure2/figure2/figure2b.pdf",
+      "c": "/Users/leejuyoung/Desktop/2026/\u1102\u1172\u1105\u1175\u11b8\u1109\u1173/figure2_experiments/outputs/figure2/figure2/figure2c.pdf",
+      "combined": "/Users/leejuyoung/Desktop/2026/\u1102\u1172\u1105\u1175\u11b8\u1109\u1173/figure2_experiments/outputs/figure2/figure2/figure2_combined.pdf",
+      "preview": "/Users/leejuyoung/Desktop/2026/\u1102\u1172\u1105\u1175\u11b8\u1109\u1173/figure2_experiments/outputs/figure2/figure2/figure2_combined.png"
+    },
+    "report": {
+      "path": "/Users/leejuyoung/Desktop/2026/\u1102\u1172\u1105\u1175\u11b8\u1109\u1173/figure2_experiments/outputs/figure2/REPORT.md"
+    }
+  },
+  "selected_experiments": [
+    "a",
+    "b",
+    "c"
+  ],
+  "status": "complete"
+}

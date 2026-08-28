@@ -1,0 +1,23 @@
+{
+  "baseline_trials": "/Users/leejuyoung/Desktop/2026/\u1102\u1172\u1105\u1175\u11b8\u1109\u1173/figure2_experiments/outputs/experiment1/quick/randomized/main_trials.parquet",
+  "bootstrap_samples": 200,
+  "comparison_inclusion": "both PR-EIG and calibrated method environment medians finite",
+  "config_hash": "292e0ea07592eea9",
+  "difference_sign": "calibrated method minus PR-EIG; negative favors calibration",
+  "environment_success_definition": "finite mathematical median over response crossing times with censored values as infinity",
+  "source_metadata": "/Users/leejuyoung/Desktop/2026/\u1102\u1172\u1105\u1175\u11b8\u1109\u1173/figure2_experiments/outputs/experiment1/quick/randomized/precision_sweep_t120_metadata.json",
+  "source_trials": "/Users/leejuyoung/Desktop/2026/\u1102\u1172\u1105\u1175\u11b8\u1109\u1173/figure2_experiments/outputs/experiment1/quick/randomized/precision_sweep_t120_trials.parquet",
+  "thresholds": [
+    0.5,
+    0.4,
+    0.3,
+    0.25,
+    0.2,
+    0.15,
+    0.1,
+    0.07,
+    0.05,
+    0.03,
+    0.02
+  ]
+}

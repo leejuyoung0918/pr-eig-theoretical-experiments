@@ -1,0 +1,22 @@
+{
+  "M_values": [
+    2,
+    4,
+    8,
+    16
+  ],
+  "T_range": "0..8d",
+  "config_hash": "91c3bd1e3dc8e888",
+  "dimensions": [
+    4,
+    8,
+    16
+  ],
+  "elapsed_seconds": 135.1081025829917,
+  "experiment": "C",
+  "macro_seeds": 20,
+  "mode": "exhaustive",
+  "targets_per_macro": 50000,
+  "targets_per_setting": 1000000,
+  "workers": 1
+}

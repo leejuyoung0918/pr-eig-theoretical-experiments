@@ -1,0 +1,37 @@
+{
+  "config_hash": "03c08bf0c5be1668",
+  "inputs": {
+    "outputs/experiment1/full/controlled/curve.parquet": "3591c4fa28b4b93cac3121178ab105556bcaf554ec85579b9afc403b7f4dc3cd",
+    "outputs/experiment1/full/controlled/slopes.csv": "be85033e47b47aebca211d464d1989f82b60fb84897ab0141a0eec142e9864d0",
+    "outputs/experiment1/full/randomized/environment_aggregated.parquet": "f1cd34ced321baa97f82e281a1a966527804eb278562f51a75112738e5a35ca7",
+    "outputs/experiment1/full/randomized/paired_summary.csv": "533822bc77c1c0c48f652a2b0c92de51d334b4fa6525b82814220b9bcfdb009d",
+    "outputs/experiment1/full/sequential/curve.csv": "1bfb08532cff22cf791e02eaf4ccad9e6f265557a2bdbd2b2057cacb3c40b0b0",
+    "outputs/experiment1/full/sequential/slopes.csv": "ff5035c07dfb7928196f5a552618e451c697201131a2e17d13800c426e058f6f"
+  },
+  "outputs": {
+    "appendix_a_relative": "/Users/leejuyoung/Desktop/2026/\u1102\u1172\u1105\u1175\u11b8\u1109\u1173/figure2_experiments/outputs/figure2/supplementary/experiment1_redesign/controlled_fisher_vs_exact_relative_information.pdf",
+    "appendix_anisotropy": "/Users/leejuyoung/Desktop/2026/\u1102\u1172\u1105\u1175\u11b8\u1109\u1173/figure2_experiments/outputs/figure2/supplementary/experiment1_redesign/randomized_performance_vs_anisotropy.pdf",
+    "appendix_arity": "/Users/leejuyoung/Desktop/2026/\u1102\u1172\u1105\u1175\u11b8\u1109\u1173/figure2_experiments/outputs/figure2/supplementary/experiment1_redesign/randomized_performance_vs_arity.pdf",
+    "appendix_beta": "/Users/leejuyoung/Desktop/2026/\u1102\u1172\u1105\u1175\u11b8\u1109\u1173/figure2_experiments/outputs/figure2/supplementary/experiment1_redesign/randomized_performance_vs_beta.pdf",
+    "appendix_c_counts": "/Users/leejuyoung/Desktop/2026/\u1102\u1172\u1105\u1175\u11b8\u1109\u1173/figure2_experiments/outputs/figure2/supplementary/experiment1_redesign/appendix_figure_c_counts_vs_threshold.pdf",
+    "appendix_c_differences": "/Users/leejuyoung/Desktop/2026/\u1102\u1172\u1105\u1175\u11b8\u1109\u1173/figure2_experiments/outputs/figure2/supplementary/experiment1_redesign/appendix_figure_c_diff_vs_threshold.pdf",
+    "appendix_c_scatter_rho025": "/Users/leejuyoung/Desktop/2026/\u1102\u1172\u1105\u1175\u11b8\u1109\u1173/figure2_experiments/outputs/figure2/supplementary/experiment1_redesign/appendix_figure_c_scatter_rho025.pdf",
+    "appendix_c_success": "/Users/leejuyoung/Desktop/2026/\u1102\u1172\u1105\u1175\u11b8\u1109\u1173/figure2_experiments/outputs/figure2/supplementary/experiment1_redesign/appendix_figure_c_success_vs_threshold.pdf",
+    "appendix_dimension": "/Users/leejuyoung/Desktop/2026/\u1102\u1172\u1105\u1175\u11b8\u1109\u1173/figure2_experiments/outputs/figure2/supplementary/experiment1_redesign/randomized_performance_vs_dimension.pdf",
+    "appendix_entropy": "/Users/leejuyoung/Desktop/2026/\u1102\u1172\u1105\u1175\u11b8\u1109\u1173/figure2_experiments/outputs/figure2/supplementary/experiment1_redesign/noiseless_random_vs_entropy_tie_sanity.pdf",
+    "appendix_exact_fisher": "/Users/leejuyoung/Desktop/2026/\u1102\u1172\u1105\u1175\u11b8\u1109\u1173/figure2_experiments/outputs/figure2/supplementary/experiment1_redesign/randomized_exact_vs_fisher_scatter.pdf",
+    "appendix_mismatch": "/Users/leejuyoung/Desktop/2026/\u1102\u1172\u1105\u1175\u11b8\u1109\u1173/figure2_experiments/outputs/figure2/supplementary/experiment1_redesign/model_mismatch_lapse_robustness.pdf",
+    "appendix_noiseless": "/Users/leejuyoung/Desktop/2026/\u1102\u1172\u1105\u1175\u11b8\u1109\u1173/figure2_experiments/outputs/figure2/supplementary/experiment1_redesign/noiseless_theorem_verification.pdf",
+    "appendix_particles": "/Users/leejuyoung/Desktop/2026/\u1102\u1172\u1105\u1175\u11b8\u1109\u1173/figure2_experiments/outputs/figure2/supplementary/experiment1_redesign/particle_count_convergence.pdf",
+    "appendix_runtime": "/Users/leejuyoung/Desktop/2026/\u1102\u1172\u1105\u1175\u11b8\u1109\u1173/figure2_experiments/outputs/figure2/supplementary/experiment1_redesign/randomized_uncached_runtime_comparison.pdf",
+    "appendix_sequential_windows": "/Users/leejuyoung/Desktop/2026/\u1102\u1172\u1105\u1175\u11b8\u1109\u1173/figure2_experiments/outputs/figure2/supplementary/experiment1_redesign/sequential_slope_window_sensitivity.pdf",
+    "appendix_thresholds": "/Users/leejuyoung/Desktop/2026/\u1102\u1172\u1105\u1175\u11b8\u1109\u1173/figure2_experiments/outputs/figure2/supplementary/experiment1_redesign/randomized_secondary_thresholds.pdf",
+    "combined": "/Users/leejuyoung/Desktop/2026/\u1102\u1172\u1105\u1175\u11b8\u1109\u1173/figure2_experiments/outputs/figure2/figures/figure2_combined_final.pdf",
+    "figure2a": "/Users/leejuyoung/Desktop/2026/\u1102\u1172\u1105\u1175\u11b8\u1109\u1173/figure2_experiments/outputs/figure2/figures/figure2a_final.pdf",
+    "figure2b": "/Users/leejuyoung/Desktop/2026/\u1102\u1172\u1105\u1175\u11b8\u1109\u1173/figure2_experiments/outputs/figure2/figures/figure2b_final.pdf",
+    "figure2c": "/Users/leejuyoung/Desktop/2026/\u1102\u1172\u1105\u1175\u11b8\u1109\u1173/figure2_experiments/outputs/figure2/figures/figure2c_final.pdf",
+    "noiseless_representative_ci": "/Users/leejuyoung/Desktop/2026/\u1102\u1172\u1105\u1175\u11b8\u1109\u1173/figure2_experiments/outputs/figure2/figures/noiseless_representative_ci.pdf",
+    "preview": "/Users/leejuyoung/Desktop/2026/\u1102\u1172\u1105\u1175\u11b8\u1109\u1173/figure2_experiments/outputs/figure2/figures/figure2_combined_final.png"
+  },
+  "statement": "All panels were generated from saved full result tables; no simulation or random draw occurred in plotting."
+}

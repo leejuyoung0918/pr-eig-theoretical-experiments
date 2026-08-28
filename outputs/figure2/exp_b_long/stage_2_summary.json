@@ -1,0 +1,48 @@
+{
+  "N_max": 65536,
+  "curves": {
+    "Exact-RC": {
+      "epsilon_65536": 0.002863937482444776,
+      "finite": true,
+      "local_slope_65536": -0.49999744123282225,
+      "positive_variance": true
+    },
+    "Fisher-RC": {
+      "epsilon_65536": 0.0028639431939611122,
+      "finite": true,
+      "local_slope_65536": -0.4999994884281658,
+      "positive_variance": true
+    },
+    "PR-EIG": {
+      "epsilon_65536": 0.008422342096624536,
+      "finite": true,
+      "local_slope_65536": -0.25743573841069606,
+      "positive_variance": true
+    }
+  },
+  "numerical_counts": {
+    "Exact-RC": {
+      "cache_clip_count": 0,
+      "eig_nonpositive_count": 0,
+      "probability_normalization_failure_count": 0,
+      "probability_zero_count": 0,
+      "variance_floor_count": 0
+    },
+    "Fisher-RC": {
+      "cache_clip_count": 0,
+      "eig_nonpositive_count": 0,
+      "probability_normalization_failure_count": 0,
+      "probability_zero_count": 0,
+      "variance_floor_count": 0
+    },
+    "PR-EIG": {
+      "cache_clip_count": 0,
+      "eig_nonpositive_count": 0,
+      "probability_normalization_failure_count": 0,
+      "probability_zero_count": 0,
+      "variance_floor_count": 0
+    }
+  },
+  "stage": 2,
+  "trajectories": 100
+}

@@ -1,0 +1,21 @@
+{
+  "config_hash": "03c08bf0c5be1668",
+  "inputs": {
+    "outputs/experiment1/full/controlled/curve.parquet": "3591c4fa28b4b93cac3121178ab105556bcaf554ec85579b9afc403b7f4dc3cd",
+    "outputs/experiment1/full/randomized/paired_pr_eig_vs_fisher_rc_lapse_0.00.csv": "9b7254b0d70882f5d5f5e95bb8156007a0e6da07e1dd222a835a965f94c22319",
+    "outputs/experiment1/full/randomized/precision_sweep/environment_thresholds.parquet": "d8d461941ef5bc50a1b518cd1444ed281ac154ab65d55df6faf0b8317e19d6f9",
+    "outputs/experiment1/full/randomized/precision_sweep/threshold_summary.csv": "60108f1729aa50b5e3dce39817fa7b5706a71cc4724d4a584c0920147e783c8f",
+    "outputs/experiment1/full/sequential/curve.csv": "1bfb08532cff22cf791e02eaf4ccad9e6f265557a2bdbd2b2057cacb3c40b0b0"
+  },
+  "outputs": {
+    "combined": "/Users/leejuyoung/Desktop/2026/\u1102\u1172\u1105\u1175\u11b8\u1109\u1173/figure2_experiments/outputs/figure2/figures/figure2_combined_final.pdf",
+    "counts": "/Users/leejuyoung/Desktop/2026/\u1102\u1172\u1105\u1175\u11b8\u1109\u1173/figure2_experiments/outputs/figure2/supplementary/experiment1_redesign/appendix_figure_c_counts_vs_threshold.pdf",
+    "differences": "/Users/leejuyoung/Desktop/2026/\u1102\u1172\u1105\u1175\u11b8\u1109\u1173/figure2_experiments/outputs/figure2/supplementary/experiment1_redesign/appendix_figure_c_diff_vs_threshold.pdf",
+    "figure2c": "/Users/leejuyoung/Desktop/2026/\u1102\u1172\u1105\u1175\u11b8\u1109\u1173/figure2_experiments/outputs/figure2/figures/figure2c_final.pdf",
+    "preview": "/Users/leejuyoung/Desktop/2026/\u1102\u1172\u1105\u1175\u11b8\u1109\u1173/figure2_experiments/outputs/figure2/figures/figure2_combined_final.png",
+    "scatter_rho025": "/Users/leejuyoung/Desktop/2026/\u1102\u1172\u1105\u1175\u11b8\u1109\u1173/figure2_experiments/outputs/figure2/supplementary/experiment1_redesign/appendix_figure_c_scatter_rho025.pdf",
+    "success": "/Users/leejuyoung/Desktop/2026/\u1102\u1172\u1105\u1175\u11b8\u1109\u1173/figure2_experiments/outputs/figure2/supplementary/experiment1_redesign/appendix_figure_c_success_vs_threshold.pdf"
+  },
+  "panels_a_b_rewritten": false,
+  "statement": "Figure 2(c) and its diagnostics were generated from saved full trajectories; no simulation, smoothing, or post-hoc threshold selection occurred in plotting."
+}

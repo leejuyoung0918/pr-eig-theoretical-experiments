@@ -1,0 +1,5 @@
+{
+  "max_eig_difference": 0.0,
+  "max_radius_difference": 0.0,
+  "statement": "In one dimension Joint-EIG is definitionally identical to Exact-RC."
+}

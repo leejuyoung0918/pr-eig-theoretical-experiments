@@ -1,0 +1,147 @@
+{
+  "components": [
+    "randomized",
+    "analyze"
+  ],
+  "config": {
+    "a_beta": 1.0,
+    "a_fit_max": 0.01,
+    "a_fit_min": 0.0001,
+    "a_m": 5,
+    "a_sigma_max": 1.0,
+    "a_sigma_min": 0.0001,
+    "alpha_max": 20.0,
+    "alpha_min": 0.05,
+    "b_beta": 1.0,
+    "b_fit_starts": [
+      1000,
+      3000,
+      10000,
+      30000
+    ],
+    "b_m": 5,
+    "b_primary_fit_start": 10000,
+    "c_arities": [
+      3,
+      5,
+      7,
+      9
+    ],
+    "c_beta_max": 4.0,
+    "c_beta_min": 0.25,
+    "c_dimensions": [
+      2,
+      4,
+      8,
+      16
+    ],
+    "c_kappa_max": 100.0,
+    "c_kappa_min": 1.0,
+    "c_lapse_values": [
+      0.0,
+      0.05,
+      0.1
+    ],
+    "c_particle_counts": [
+      2000,
+      5000,
+      10000,
+      20000
+    ],
+    "c_primary_threshold": 0.25,
+    "c_s0_max": 2.0,
+    "c_s0_min": 0.5,
+    "c_tau_max": 16.0,
+    "c_tau_min": 0.0001,
+    "c_thresholds": [
+      0.5,
+      0.25,
+      0.1
+    ],
+    "methods": [
+      "PR-EIG",
+      "Exact-RC",
+      "Fisher-RC"
+    ],
+    "mode": "quick",
+    "physical_r_max": 10.0,
+    "physical_r_min": 0.0001,
+    "profile": {
+      "a_design_grid_points": 81,
+      "a_gh_order": 128,
+      "a_sigma_points": 41,
+      "b_batch_size": 10,
+      "b_bootstrap_samples": 200,
+      "b_checkpoint_count": 55,
+      "b_n_max": 3000,
+      "b_repetitions": 20,
+      "c_bootstrap_samples": 200,
+      "c_convergence_environments": 2,
+      "c_convergence_response_repetitions": 1,
+      "c_convergence_t_max": 20,
+      "c_environment_batch_size": 1,
+      "c_environments": 8,
+      "c_library_gh_order": 64,
+      "c_library_grid_points": 61,
+      "c_library_tau_points": 120,
+      "c_particles": 500,
+      "c_response_repetitions": 2,
+      "c_run_mismatch": true,
+      "c_t_max": 40,
+      "name": "quick"
+    },
+    "seed": 20260820
+  },
+  "config_hash": "83589dd8a94eb695",
+  "cpu_count": 8,
+  "created_local": "2026-08-20 17:29:36 +0900",
+  "created_unix": 1787214576.866969,
+  "elapsed_seconds": 6.7646959999983665,
+  "git_commit": null,
+  "host": "ijuyeong-ui-MacBookPro.local",
+  "nominal_only": false,
+  "numpy": "2.2.6",
+  "outputs": {
+    "controlled_analysis": {
+      "guides": "/Users/leejuyoung/Desktop/2026/\u1102\u1172\u1105\u1175\u11b8\u1109\u1173/figure2_experiments/outputs/experiment1/quick/controlled/guides.csv",
+      "relative": "/Users/leejuyoung/Desktop/2026/\u1102\u1172\u1105\u1175\u11b8\u1109\u1173/figure2_experiments/outputs/experiment1/quick/controlled/exact_fisher_relative.csv",
+      "slopes": "/Users/leejuyoung/Desktop/2026/\u1102\u1172\u1105\u1175\u11b8\u1109\u1173/figure2_experiments/outputs/experiment1/quick/controlled/slopes.csv"
+    },
+    "randomized_analysis": {
+      "aggregate": "/Users/leejuyoung/Desktop/2026/\u1102\u1172\u1105\u1175\u11b8\u1109\u1173/figure2_experiments/outputs/experiment1/quick/randomized/environment_aggregated.parquet",
+      "diagnostics": "/Users/leejuyoung/Desktop/2026/\u1102\u1172\u1105\u1175\u11b8\u1109\u1173/figure2_experiments/outputs/experiment1/quick/randomized/diagnostics.json",
+      "paired_exact_rc_vs_fisher_rc_lapse_0.00.csv": "/Users/leejuyoung/Desktop/2026/\u1102\u1172\u1105\u1175\u11b8\u1109\u1173/figure2_experiments/outputs/experiment1/quick/randomized/paired_exact_rc_vs_fisher_rc_lapse_0.00.csv",
+      "paired_exact_rc_vs_fisher_rc_lapse_0.05.csv": "/Users/leejuyoung/Desktop/2026/\u1102\u1172\u1105\u1175\u11b8\u1109\u1173/figure2_experiments/outputs/experiment1/quick/randomized/paired_exact_rc_vs_fisher_rc_lapse_0.05.csv",
+      "paired_exact_rc_vs_fisher_rc_lapse_0.10.csv": "/Users/leejuyoung/Desktop/2026/\u1102\u1172\u1105\u1175\u11b8\u1109\u1173/figure2_experiments/outputs/experiment1/quick/randomized/paired_exact_rc_vs_fisher_rc_lapse_0.10.csv",
+      "paired_pr_eig_vs_exact_rc_lapse_0.00.csv": "/Users/leejuyoung/Desktop/2026/\u1102\u1172\u1105\u1175\u11b8\u1109\u1173/figure2_experiments/outputs/experiment1/quick/randomized/paired_pr_eig_vs_exact_rc_lapse_0.00.csv",
+      "paired_pr_eig_vs_exact_rc_lapse_0.05.csv": "/Users/leejuyoung/Desktop/2026/\u1102\u1172\u1105\u1175\u11b8\u1109\u1173/figure2_experiments/outputs/experiment1/quick/randomized/paired_pr_eig_vs_exact_rc_lapse_0.05.csv",
+      "paired_pr_eig_vs_exact_rc_lapse_0.10.csv": "/Users/leejuyoung/Desktop/2026/\u1102\u1172\u1105\u1175\u11b8\u1109\u1173/figure2_experiments/outputs/experiment1/quick/randomized/paired_pr_eig_vs_exact_rc_lapse_0.10.csv",
+      "paired_pr_eig_vs_fisher_rc_lapse_0.00.csv": "/Users/leejuyoung/Desktop/2026/\u1102\u1172\u1105\u1175\u11b8\u1109\u1173/figure2_experiments/outputs/experiment1/quick/randomized/paired_pr_eig_vs_fisher_rc_lapse_0.00.csv",
+      "paired_pr_eig_vs_fisher_rc_lapse_0.05.csv": "/Users/leejuyoung/Desktop/2026/\u1102\u1172\u1105\u1175\u11b8\u1109\u1173/figure2_experiments/outputs/experiment1/quick/randomized/paired_pr_eig_vs_fisher_rc_lapse_0.05.csv",
+      "paired_pr_eig_vs_fisher_rc_lapse_0.10.csv": "/Users/leejuyoung/Desktop/2026/\u1102\u1172\u1105\u1175\u11b8\u1109\u1173/figure2_experiments/outputs/experiment1/quick/randomized/paired_pr_eig_vs_fisher_rc_lapse_0.10.csv",
+      "particle_convergence": "/Users/leejuyoung/Desktop/2026/\u1102\u1172\u1105\u1175\u11b8\u1109\u1173/figure2_experiments/outputs/experiment1/quick/randomized/particle_convergence.csv",
+      "runtime": "/Users/leejuyoung/Desktop/2026/\u1102\u1172\u1105\u1175\u11b8\u1109\u1173/figure2_experiments/outputs/experiment1/quick/randomized/runtime.csv",
+      "sensitivity": "/Users/leejuyoung/Desktop/2026/\u1102\u1172\u1105\u1175\u11b8\u1109\u1173/figure2_experiments/outputs/experiment1/quick/randomized/sensitivity.csv",
+      "summary": "/Users/leejuyoung/Desktop/2026/\u1102\u1172\u1105\u1175\u11b8\u1109\u1173/figure2_experiments/outputs/experiment1/quick/randomized/paired_summary.csv",
+      "trials": "/Users/leejuyoung/Desktop/2026/\u1102\u1172\u1105\u1175\u11b8\u1109\u1173/figure2_experiments/outputs/experiment1/quick/randomized/main_trials.parquet",
+      "uncached_design_benchmark": "/Users/leejuyoung/Desktop/2026/\u1102\u1172\u1105\u1175\u11b8\u1109\u1173/figure2_experiments/outputs/experiment1/quick/randomized/uncached_design_benchmark.csv",
+      "uncached_design_benchmark_trials": "/Users/leejuyoung/Desktop/2026/\u1102\u1172\u1105\u1175\u11b8\u1109\u1173/figure2_experiments/outputs/experiment1/quick/randomized/uncached_design_benchmark_trials.csv"
+    },
+    "randomized_run": {
+      "library": "/Users/leejuyoung/Desktop/2026/\u1102\u1172\u1105\u1175\u11b8\u1109\u1173/figure2_experiments/outputs/experiment1/quick/randomized/cache/resolution_library_9ac85be54b15e377.npz",
+      "library_validation": "/Users/leejuyoung/Desktop/2026/\u1102\u1172\u1105\u1175\u11b8\u1109\u1173/figure2_experiments/outputs/experiment1/quick/randomized/library_validation.csv",
+      "metadata": "/Users/leejuyoung/Desktop/2026/\u1102\u1172\u1105\u1175\u11b8\u1109\u1173/figure2_experiments/outputs/experiment1/quick/randomized/main_metadata.json",
+      "trials": "/Users/leejuyoung/Desktop/2026/\u1102\u1172\u1105\u1175\u11b8\u1109\u1173/figure2_experiments/outputs/experiment1/quick/randomized/main_trials.parquet"
+    },
+    "sequential_analysis": {
+      "curve": "/Users/leejuyoung/Desktop/2026/\u1102\u1172\u1105\u1175\u11b8\u1109\u1173/figure2_experiments/outputs/experiment1/quick/sequential/curve.csv",
+      "guides": "/Users/leejuyoung/Desktop/2026/\u1102\u1172\u1105\u1175\u11b8\u1109\u1173/figure2_experiments/outputs/experiment1/quick/sequential/guides.csv",
+      "local": "/Users/leejuyoung/Desktop/2026/\u1102\u1172\u1105\u1175\u11b8\u1109\u1173/figure2_experiments/outputs/experiment1/quick/sequential/local_slopes.csv",
+      "slopes": "/Users/leejuyoung/Desktop/2026/\u1102\u1172\u1105\u1175\u11b8\u1109\u1173/figure2_experiments/outputs/experiment1/quick/sequential/slopes.csv"
+    }
+  },
+  "platform": "macOS-15.6.1-arm64-arm-64bit",
+  "processor": "arm",
+  "python": "3.10.8",
+  "status": "complete"
+}

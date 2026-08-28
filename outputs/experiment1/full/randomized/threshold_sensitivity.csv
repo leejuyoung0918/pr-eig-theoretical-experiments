@@ -1,0 +1,13 @@
+threshold,method,environments,environment_success_rate,mean_response_success_rate,median_query_count_plot
+0.5,Exact-RC,500,1.0,1.0,8.0
+0.5,Fisher-RC,500,1.0,1.0,9.0
+0.5,PR-EIG,500,1.0,1.0,8.0
+0.5,Fisher/PR ratio,500,,,1.0
+0.25,Exact-RC,500,0.936,0.936,42.25
+0.25,Fisher-RC,500,0.936,0.936,43.5
+0.25,PR-EIG,500,0.936,0.936,42.25
+0.25,Fisher/PR ratio,468,,,1.0114723172764764
+0.1,Exact-RC,500,0.586,0.5865,302.0
+0.1,Fisher-RC,500,0.584,0.584,304.25
+0.1,PR-EIG,500,0.58,0.5805,312.0
+0.1,Fisher/PR ratio,289,,,1.006896551724138

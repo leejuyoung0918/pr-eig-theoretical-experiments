@@ -1,0 +1,37 @@
+# macOS
+.DS_Store
+
+# Python bytecode and caches
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Virtual environments and packaging
+.venv/
+venv/
+env/
+*.egg-info/
+build/
+dist/
+
+# Test and coverage artifacts
+.coverage
+.coverage.*
+htmlcov/
+
+# Editor settings
+.idea/
+.vscode/
+
+# Regenerable experiment data and checkpoints
+outputs/**/raw/
+outputs/**/cache/
+outputs/**/*.parquet
+outputs/**/*.npz
+outputs/**/*.npy
+outputs/**/*.pkl
+outputs/**/*.pickle
+outputs/**/*.tmp

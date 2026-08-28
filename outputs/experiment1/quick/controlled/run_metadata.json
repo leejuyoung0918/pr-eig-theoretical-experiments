@@ -1,0 +1,21 @@
+{
+  "M": 5,
+  "alpha_range": [
+    0.05,
+    20.0
+  ],
+  "beta": 1.0,
+  "config_hash": "6103a3b186c774ca",
+  "elapsed_seconds": 0.2905805409827735,
+  "initial_physical_range": [
+    0.0001,
+    10.0
+  ],
+  "mode": "quick",
+  "quadrature_order": 128,
+  "sigma_points": 41,
+  "sigma_range": [
+    0.0001,
+    1.0
+  ]
+}

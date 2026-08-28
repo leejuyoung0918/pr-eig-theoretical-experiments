@@ -1,0 +1,8 @@
+{
+  "N_max": 8192,
+  "all_fields_bitwise_equal": true,
+  "max_absolute_checkpoint_difference": 0.0,
+  "max_slope_difference": 5.551115123125783e-17,
+  "passed": true,
+  "trajectories_replayed": 20
+}
