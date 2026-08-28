@@ -1,251 +1,254 @@
-# Figure 2 experiments
+# PR-EIG Theoretical Experiments
 
-This directory is an independent simulation package for three distinct claims:
+Reproducible simulations for studying the information scaling and sequential
+convergence of posterior-relative expected information gain (PR-EIG) under a
+finite-noise multinomial logit (MNL) response model.
 
-1. finite-`beta` noisy MNL one-step information collapse;
-2. finite-`beta` noisy MNL long-horizon sequential convergence;
-3. a separate noiseless M-way coordinate-allocation benchmark.
+The repository compares PR-EIG with two physical-resolution calibration rules:
 
-## Redesigned Experiment 1 (final Figure 2)
+- **Exact-RC**, which directly maximizes exact expected information gain over a
+  physical query radius;
+- **Fisher-RC**, which chooses the radius by maximizing the exact scalar Fisher
+  information at the posterior center.
 
-The paper-facing Experiment 1 now has a separate, staged entry point. It replaces
-the main noiseless panel with a paired randomized finite-beta benchmark while
-preserving the original noiseless theorem check in the appendix:
+The experiments isolate when posterior-relative query scaling loses information,
+measure the resulting long-horizon convergence rate, and test whether the
+calibrated rules remain useful in randomized multidimensional settings.
 
-1. controlled exact information scaling;
-2. long-horizon scalar sequential consequence;
-3. randomized multidimensional robustness.
+![Publication-ready Figure 2](outputs/figure2/figures/figure2_combined_final.png)
 
-The main randomized panel is now a predeclared precision sweep over
-`rho* in {0.50, 0.40, 0.30, 0.25, 0.20, 0.15, 0.10, 0.07, 0.05, 0.03, 0.02}`.
-It plots the environment-median Fisher/PR and Exact/PR query ratios with
-across-environment IQR bands. The historical `rho*=0.25` scatter remains an
-appendix diagnostic.
+## What is tested
 
-Run the lightweight validation before the paper-quality profile:
+The paper-facing experiment has three stages:
 
-```bash
-python3 -m figure2_experiments.run_experiment1 --mode quick --workers 4
-python3 -m figure2_experiments.run_experiment1 --mode full --workers 8
-python3 -m figure2_experiments.experiment1.plot --mode full --figure-c-only
-python3 -m figure2_experiments.experiment1.report --mode full
-```
+1. **Controlled information scaling** — exact quadrature measures how one-step
+   information changes as posterior uncertainty decreases.
+2. **Sequential consequence** — long-horizon simulations compare the resulting
+   localization rates under a shared finite-`beta` MNL model.
+3. **Randomized robustness** — paired multidimensional environments test query
+   efficiency across dimensions, arities, inverse temperatures, anisotropy, and
+   response-lapse rates.
 
-All stages resume from deterministic batch/environment checkpoints unless
-`--force` is supplied. Components may be selected independently, for example:
+A separate noiseless M-way coordinate-allocation benchmark is retained as an
+appendix theorem check. It is not used as evidence for the noisy MNL rates.
 
-```bash
-python3 -m figure2_experiments.run_experiment1 --mode full \
-  --components controlled sequential analyze report --workers 8
-```
+## Main saved results
 
-The plotting command reads saved `full` results only and contains no random-data
-generation. The final PDFs and 600-dpi preview are written to
-`outputs/figure2/figures/`; appendix figures are written to
-`outputs/figure2/supplementary/experiment1_redesign/`. The machine-readable and
-human-readable terminal reports are `outputs/experiment1/full/FINAL_REPORT.json`
-and `outputs/experiment1/full/FINAL_REPORT.md`.
+| Question | PR-EIG | Exact-RC / Fisher-RC |
+|---|---:|---:|
+| One-step information scaling | `O(sigma^4)`; fitted slope `3.995858` | `O(sigma^2)`; fitted slope `1.999991` |
+| Sequential RMS scaling | approaches `O(n^-1/4)`; fitted slope `-0.261509` | `O(n^-1/2)`; fitted slopes `-0.499980` / `-0.499985` |
+| Fine-precision query efficiency | baseline | median query ratios fall below one at `rho*=0.07`; median-bootstrap CIs are below one from `rho*=0.05` |
 
-The `full` profile uses 121 controlled sigma values; 200 sequential repetitions
-through 100,000 queries with 2,000 bootstrap samples; and 500 randomized
-environments, four nested response replicates, and 2,000 directional particles.
-The original randomized benchmark remains at `T_max=400`. Its fine-threshold
-coverage was insufficient (only four comparable Fisher/PR environments at
-`rho*=0.02`), so the nominal-response trajectories were extended to `T_max=1000`
-without changing environment distributions, methods, or approximation. Every old
-400-query rho-path prefix matches its extension exactly. The randomized posterior is explicitly a
-projected particle ADF: exact MNL likelihood weights provide directional moments,
-followed by rank-one Gaussian moment projection and an equal-weight reset. It is
-not claimed to be a generic exact high-dimensional particle posterior.
+The retained `rho*=0.25` benchmark does **not** show a calibrated-method
+query-count advantage. At finer precision the calibrated methods become more
+useful, although coverage falls at the most demanding `rho*=0.02` threshold and
+is reported explicitly.
 
-On the tested 8-worker Apple Silicon host, the saved full controlled and
-sequential stages took about 1.5 s and 46 s; the three-lapse randomized stage took
-about 421 s after its resolution library and particle-count checks were available.
-Timing is hardware-dependent. The report retains the lack of an RC advantage at
-`rho*=0.25`, while the mechanically evaluated sweep shows both calibrated medians
-crossing below one at `rho*=0.07` and median-bootstrap CIs below one from
-`rho*=0.05`. Coverage falls to 31 comparable environments at `rho*=0.02`, which is
-reported rather than hidden.
+Fisher-RC closely tracks Exact-RC while avoiding repeated EIG optimization. In
+the saved uncached benchmark, median design times were `0.291 ms` for Fisher-RC,
+`3.958 ms` for PR-EIG, and `4.789 ms` for Exact-RC.
 
-Experiment C is not used to justify the noisy MNL rates in Experiments A/B. Analytic expressions in C and dashed slope guides in A/B are plotted only as theory; no empirical observation is generated from a theoretical error formula.
+See the generated [final report](outputs/experiment1/full/FINAL_REPORT.md) and
+the detailed [experiment specification](FIGURE2_EXPERIMENT_DETAILS.md) for the
+complete estimates, uncertainty intervals, diagnostics, and interpretation
+limits.
 
-## Model and template normalization
+## Model
 
-For a posterior-centered scalar coordinate `s`, physical radius `r`, inverse temperature `beta`, and template `b`, the likelihood is
+For posterior-centered scalar coordinate `s`, physical radius `r`, inverse
+temperature `beta`, and normalized template `b`, the response likelihood is
 
 ```text
-P(Y=m | s,r) = exp[-beta (s-r b_m)^2] / sum_j exp[-beta (s-r b_j)^2].
+P(Y=m | s,r) = exp[-beta (s-r b_m)^2]
+               / sum_j exp[-beta (s-r b_j)^2].
 ```
 
-The implementation evaluates log probabilities with max-shifted log-sum-exp. The default `M=5` template starts from equal-mass standard-normal quantile centers
+The default `M=5` template begins with equal-mass standard-normal quantile
+centers,
 
 ```text
-b_m(raw) = Phi^{-1}((m+1/2)/M),  m=0,...,M-1.
+b_m(raw) = Phi^-1((m+1/2)/M),  m=0,...,M-1,
 ```
 
-It then subtracts the floating-point mean and divides by `sqrt(mean(b**2))`. Thus the final template has exactly zero numerical mean and unit RMS. This same normalization is used for all `M in {2,3,5,8}` robustness settings.
+then subtracts its floating-point mean and is rescaled to unit RMS. Likelihoods
+are evaluated with max-shifted log-sum-exp.
 
-## Numerical estimators
-
-Experiment A uses deterministic Gauss-Hermite quadrature, not particles. The primary order is 128 and the exhaustive order is 256. A 64/128/256 comparison is written before rate interpretation. The KL integrand is evaluated as
+## Repository layout
 
 ```text
-q * [(1+x) log(1+x) - x],  x=(p-q)/q,
+.
+├── experiment1/             # Final controlled, sequential, and randomized study
+├── exp_a_information/       # One-step information-scaling experiment
+├── exp_b_sequential/        # Sequential finite-noise localization experiment
+├── exp_b_long/              # Long-horizon extension and replay checks
+├── exp_c_noiseless/         # Separate noiseless allocation benchmark
+├── plotting/                # Publication-figure loaders and renderers
+├── tests/                   # Numerical and regression checks
+├── outputs/                 # Tracked summaries, reports, and final figures
+├── run_experiment1.py       # Staged paper-facing experiment entry point
+├── run_all.py               # A/B/C smoke, paper, and exhaustive profiles
+└── pyproject.toml           # Package metadata and dependencies
 ```
 
-which analytically removes the cancelling first-order term when `p` and `q` are nearly equal. The pre-registered numerical floor is `I <= 1e-22`; flagged values remain in raw data but are excluded from slope fits.
+## Installation
 
-Both PR-EIG and Exact-RC use a logarithmic coarse grid followed by the same bounded scalar refinement in log radius. PR-EIG keeps the pre-registered bounded interval `alpha in [0.05,20]`; contact with that boundary is recorded, and the main setting also evaluates `[0.005,200]` as a sensitivity diagnostic. The primary PR curve is never silently replaced by the expanded interval. Physical search starts at `r in [1e-4,10]` and expands by decades only if the optimum touches a boundary. Fisher-RC maximizes the exact Fisher information at `s=0`, but its plotted y value is exact quadrature EIG at the selected Fisher radius.
-
-Experiment B uses Gaussian assumed-density filtering. Every response-conditioned normalization, mean, and variance is obtained by integrating the actual MNL likelihood with Gauss-Hermite quadrature, then projecting only its first two moments to a Gaussian. No target rate is present in the update. A dense adaptive-grid posterior validates posterior moments, selected resolution, and EIG over an overlapping horizon. For speed, design and response-conditioned transitions are cached on a dense `log(sigma)` grid. Geometric midpoints are checked against direct optimization and direct quadrature; all interpolation errors are saved.
-
-The three sequential policies for a given trajectory share the same prior draw and the same round-by-round uniform variates. Each policy maps that common uniform through its own categorical inverse CDF.
-
-Experiment C samples actual targets uniformly inside the initial box, performs actual M-way cell updates, and computes Euclidean squared errors from the final cell midpoints. Its analytic curves are computed only during analysis.
-
-## Fixed fit rules
-
-- A primary: `sigma <= 0.03`; sensitivities: `sigma <= 0.1, 0.03, 0.01`.
-- B primary: `n >= 512`; sensitivities: `n >= 256, 512, 1024, 2048`.
-- C: RC slopes use pre-registered balanced-cycle endpoints `T % d == 0` and `T/d >= 2`, which removes the known arbitrary-T within-cycle oscillation without selecting points from the observed values.
-
-The smoke profile ends at `n=256`, so it intentionally does not report a primary B slope. It verifies plumbing and numerical sanity only.
-
-## Installation and execution
-
-From the workspace parent directory:
+Python 3.10 or newer is required.
 
 ```bash
-python3 -m pip install -r figure2_experiments/requirements.txt
-python3 figure2_experiments/run_all.py --mode smoke
-python3 figure2_experiments/run_all.py --mode paper
-python3 figure2_experiments/run_all.py --mode exhaustive
+git clone \
+  https://github.com/leejuyoung0918/pr-eig-theoretical-experiments.git \
+  figure2_experiments
+
+python3 -m venv figure2_experiments/.venv
+source figure2_experiments/.venv/bin/activate
+python -m pip install -r figure2_experiments/requirements.txt
 ```
 
-From inside this directory, the requested shorthand is also supported:
+The explicit local directory name is intentional: the repository root is also
+the `figure2_experiments` Python package. Run the commands below from the
+directory that contains the clone, not from inside `figure2_experiments/`.
+
+Run the test suite:
 
 ```bash
-python run_all.py --mode smoke
-python run_all.py --mode paper
-python run_all.py --mode exhaustive
+python -m pytest figure2_experiments/tests
+```
+
+## Reproducing the final experiment
+
+Start with the lightweight profile before launching the paper-quality run:
+
+```bash
+python -m figure2_experiments.run_experiment1 --mode quick --workers 4
+python -m figure2_experiments.run_experiment1 --mode full --workers 8
+```
+
+Stages can be selected independently:
+
+```bash
+python -m figure2_experiments.run_experiment1 \
+  --mode full \
+  --components controlled sequential analyze report \
+  --workers 8
+```
+
+Regenerate the final randomized panel and report from saved results:
+
+```bash
+python -m figure2_experiments.experiment1.plot --mode full --figure-c-only
+python -m figure2_experiments.experiment1.report --mode full
+```
+
+All stages resume from deterministic batch or environment checkpoints unless
+`--force` is supplied.
+
+The `full` profile uses:
+
+- 121 controlled `sigma` values;
+- 200 sequential repetitions through 100,000 queries with 2,000 bootstrap
+  samples;
+- 500 randomized environments, four nested response replicates, and 2,000
+  directional particles.
+
+Runtime is hardware-dependent. On the recorded 8-worker Apple Silicon run, the
+controlled and sequential stages took about `1.5 s` and `46 s`; the full
+three-lapse randomized stage took about `421 s` after its reusable resolution
+library and particle-count checks were available.
+
+## Running the original A/B/C suite
+
+```bash
+python -m figure2_experiments.run_all --mode smoke
+python -m figure2_experiments.run_all --mode paper --workers 8
+python -m figure2_experiments.run_all --mode exhaustive
 ```
 
 Useful controls:
 
 ```bash
-python run_all.py --mode paper --workers 8
-python run_all.py --mode paper --experiments a c --skip-plot
-python run_all.py --mode smoke --force
+python -m figure2_experiments.run_all --mode paper --experiments a c --skip-plot
+python -m figure2_experiments.run_all --mode smoke --force
 ```
 
-### Experiment B long-horizon extension
+| Profile | A sigma/order | B trajectories x horizon | B bootstrap | C targets per `(d,M)` | Intended use |
+|---|---:|---:|---:|---:|---|
+| `smoke` | 41 / 128 | 20 x 256 | 200 | 4,000 | Plumbing and sanity checks |
+| `paper` | 121 / 128 | 1,000 x 8,192 | 2,000 | 100,000 | Manuscript result |
+| `exhaustive` | 181 / 256, down to `1e-5` | 2,000 x 16,384 | 5,000 | 1,000,000 | Precision/stress run |
 
-The publication B run remains unchanged at 1,000 trajectories x 8,192 queries. Its
-saved ADF states and deterministic common-random-number streams can be extended to
-65,536 queries without modifying or overwriting the original output:
+### Long-horizon sequential extension
+
+The publication B run can be extended from 8,192 to 65,536 queries without
+overwriting the original result:
 
 ```bash
-python3 -m figure2_experiments.run_exp_b_long
+python -m figure2_experiments.run_exp_b_long
 ```
 
-The extension first replays 20 complete trajectories through query 8,192 and
-requires checkpoint fields plus the original `[512,8192]` slopes to agree within
-`1e-13`. It then runs gated stages of 20, 100, and 1,000 trajectories. Completed
-batch files are immutable resume points. New results live only under
-`outputs/figure2/exp_b_long/`. The pre-registered slope windows are
-`[2048,8192]`, `[4096,16384]`, `[8192,32768]`, `[16384,65536]`, and confirmatory
-`[8192,65536]`; `[512,8192]` is retained as the original-window comparison.
+The extension first replays 20 trajectories and requires the saved checkpoint
+fields and original `[512,8192]` slopes to agree within `1e-13`. It then runs
+gated stages of 20, 100, and 1,000 trajectories.
 
-`--force` deliberately discards matching completed checkpoints for the selected profile. Without it, every A setting, B trajectory batch, B design cache, and C macro-seed resumes from disk.
+## Rebuilding the publication figure
 
-## Publication-ready Figure 2
-
-The final plotting command reads existing result files only. It does not run an
-experiment, refit a slope, smooth a curve, or alter a confidence interval:
+The plotter reads saved results only; it does not rerun an experiment or refit a
+reported slope.
 
 ```bash
-python3 -m figure2_experiments.plotting.plot_figure2 \
+python -m figure2_experiments.plotting.plot_figure2 \
   --exp-a figure2_experiments/outputs/figure2/exp_a \
   --exp-b figure2_experiments/outputs/figure2/exp_b \
   --exp-c figure2_experiments/outputs/figure2/exp_c \
   --output figure2_experiments/outputs/figure2/figures/figure2_combined_final.pdf
 ```
 
-The loaders and panel renderers are independent (`load_exp_a`, `load_exp_b`,
-`load_exp_c`, `plot_panel_a`, `plot_panel_b`, `plot_panel_c`). To replace only
-the sequential panel with the completed long-horizon result, change one argument:
+To use the completed long-horizon B result, replace only `--exp-b`:
 
 ```bash
-python3 -m figure2_experiments.plotting.plot_figure2 \
+python -m figure2_experiments.plotting.plot_figure2 \
   --exp-a figure2_experiments/outputs/figure2/exp_a \
   --exp-b figure2_experiments/outputs/figure2/exp_b_long \
   --exp-c figure2_experiments/outputs/figure2/exp_c \
   --output figure2_experiments/outputs/figure2/figures/figure2_combined_long.pdf
 ```
 
-The standard final combined figure is authored at 7.05 inches wide for a
-two-column `figure*` environment, and its PNG preview is exported at 600 dpi.
+## Outputs and repository size
 
-Run tests from the workspace parent:
+Generated outputs live under `figure2_experiments/outputs/`. This Git repository
+includes the human-readable reports, compact CSV/JSON summaries, diagnostics,
+and final PDF/PNG figures required to inspect the saved conclusions.
 
-```bash
-python3 -m pytest figure2_experiments/tests
-```
+Large reproducible artifacts are intentionally ignored to keep the repository
+lightweight:
 
-## Execution profiles and expected cost
+- raw Parquet trial tables;
+- NumPy checkpoint files;
+- experiment caches and per-environment raw records;
+- Python and test caches.
 
-| profile | A sigma/order | B trajectories x horizon | B bootstrap | C targets per `(d,M)` | intended use |
-|---|---:|---:|---:|---:|---|
-| smoke | 41 / 128 | 20 x 256 | 200 | 4,000 | plumbing and unit checks |
-| paper | 121 / 128 | 1,000 x 8,192 | 2,000 | 100,000 | manuscript result |
-| exhaustive | 181 / 256, down to `1e-5` | 2,000 x 16,384 | 5,000 | 1,000,000 | precision/stress run |
+Running an experiment recreates these files locally. The ignored files are not
+required to inspect the committed reports and figures, but the raw data must be
+regenerated before performing analyses that explicitly load it.
 
-Wall time is hardware-dependent. The transition cache makes the long B trajectories inexpensive after cache construction; A's full 20-setting robustness grid and B's exact-grid validation dominate paper mode. Typical expectations are minutes for smoke, tens of minutes to several hours for paper, and many CPU-hours plus substantial disk/memory bandwidth for exhaustive. Metadata records elapsed time, CPU count, platform, Python/NumPy versions, config hash, and a Git commit when available.
+## Numerical and interpretation safeguards
 
-## Checkpoints and outputs
+- Experiment A uses deterministic Gauss-Hermite quadrature, with explicit
+  64/128/256-order comparisons.
+- PR-EIG and Exact-RC use the same logarithmic coarse search and bounded scalar
+  refinement; search-boundary contact is recorded rather than hidden.
+- Fisher-RC is evaluated with exact quadrature EIG at its Fisher-selected radius.
+- Sequential policies share prior draws and round-by-round random variates.
+- Fit windows are fixed in configuration before saved results are loaded.
+- Numerical-floor flags remain present in generated raw outputs.
+- Analytic curves and slope guides are labeled as theory and are never used as
+  empirical observations.
+- The randomized posterior is a projected particle assumed-density filter, not a
+  claim of generic exact high-dimensional Bayesian inference.
 
-All outputs live under `outputs/figure2/`:
+## Further documentation
 
-```text
-exp_a/
-  raw/main.parquet
-  raw/robustness.parquet
-  slopes.csv
-  robustness.csv
-  quadrature_validation.csv
-  diagnostics/*.png
-exp_b/
-  raw/trajectories.parquet
-  raw/batches/*.npz
-  slopes.csv
-  bootstrap.csv
-  curve.csv
-  cache_validation.csv
-  exact_grid_validation.csv
-  diagnostics/*.png
-exp_c/
-  raw/macros/*.npz
-  raw/macro_summary.parquet
-  slopes.csv
-  full_grid.csv
-figure2/
-  figure2a.pdf
-  figure2b.pdf
-  figure2c.pdf
-  figure2_combined.pdf
-  figure2_combined.png
-REPORT.md
-run_metadata.json
-```
-
-B trajectory rows include trajectory/seed/method/query count, true target, posterior mean and variance, directional RMS, true estimation error, selected radius and alpha, exact EIG, and Fisher information at logarithmic checkpoints including every power of two. C raw files contain macro-level sums rather than theoretical samples, enabling exact resume and macro-seed confidence intervals.
-
-## Interpretation safeguards
-
-- PR boundary contact is disclosed, not optimized away.
-- Exact-RC and Fisher-RC share the exact-EIG y metric.
-- Joint-EIG equals Exact-RC in one dimension and is recorded as an equality sanity check rather than duplicated in the figure.
-- Fit windows are fixed in configuration before results are loaded.
-- Numerical-floor flags remain visible in raw outputs.
-- Random-coordinate and entropy-tie use independent uniform coordinate draws and are compared statistically.
-- The universal lower bound is labeled as a bound, never as a policy.
+- [Detailed experiment design and results](FIGURE2_EXPERIMENT_DETAILS.md)
+- [Final paper-facing report](outputs/experiment1/full/FINAL_REPORT.md)
+- [Original A/B/C simulation report](outputs/figure2/REPORT.md)
+- [Implementation inspection notes](experiment1/INSPECTION.md)
