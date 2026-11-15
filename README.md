@@ -15,6 +15,12 @@ The experiments isolate when posterior-relative query scaling loses information,
 measure the resulting long-horizon convergence rate, and test whether the
 calibrated rules remain useful in randomized multidimensional settings.
 
+## Engineering highlights / 개발 환경 개선
+
+실험 재현을 위해 seed·checkpoint·metadata·보고서 생성을 연결했습니다. query rule은 정확도뿐 아니라 계산 비용과 정밀도별 coverage까지 비교합니다. 이번 개발 환경 정리에서는 wheel에서 누락되던 `experiment1`을 포함하고, 기본 clone 이름에서 설치·테스트할 수 있도록 안내와 CI를 고쳤습니다.
+
+[문제·선택·결과·학습 및 개발 가이드](docs/ENGINEERING.md) · [패키징·회귀 CI](.github/workflows/ci.yml)
+
 ![Publication-ready Figure 2](outputs/figure2/figures/figure2_combined_final.png)
 
 ## What is tested
@@ -96,24 +102,19 @@ are evaluated with max-shifted log-sum-exp.
 Python 3.10 or newer is required.
 
 ```bash
-git clone \
-  https://github.com/leejuyoung0918/pr-eig-theoretical-experiments.git \
-  figure2_experiments
-
-python3 -m venv figure2_experiments/.venv
-source figure2_experiments/.venv/bin/activate
-python -m pip install -r figure2_experiments/requirements.txt
+git clone https://github.com/leejuyoung0918/pr-eig-theoretical-experiments.git
+cd pr-eig-theoretical-experiments
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install -e '.[dev]'
+python -m ruff check .
+python -m pytest
 ```
 
-The explicit local directory name is intentional: the repository root is also
-the `figure2_experiments` Python package. Run the commands below from the
-directory that contains the clone, not from inside `figure2_experiments/`.
-
-Run the test suite:
-
-```bash
-python -m pytest figure2_experiments/tests
-```
+Editable installation provides the `figure2_experiments` import name regardless
+of the checkout directory name. Run the commands below from the repository root.
+For figure commands that refer to saved paths, use `outputs/...` from this root.
+The wheel includes experiment code; saved results remain in the Git checkout.
 
 ## Reproducing the final experiment
 
@@ -197,25 +198,25 @@ reported slope.
 
 ```bash
 python -m figure2_experiments.plotting.plot_figure2 \
-  --exp-a figure2_experiments/outputs/figure2/exp_a \
-  --exp-b figure2_experiments/outputs/figure2/exp_b \
-  --exp-c figure2_experiments/outputs/figure2/exp_c \
-  --output figure2_experiments/outputs/figure2/figures/figure2_combined_final.pdf
+  --exp-a outputs/figure2/exp_a \
+  --exp-b outputs/figure2/exp_b \
+  --exp-c outputs/figure2/exp_c \
+  --output outputs/figure2/figures/figure2_combined_final.pdf
 ```
 
 To use the completed long-horizon B result, replace only `--exp-b`:
 
 ```bash
 python -m figure2_experiments.plotting.plot_figure2 \
-  --exp-a figure2_experiments/outputs/figure2/exp_a \
-  --exp-b figure2_experiments/outputs/figure2/exp_b_long \
-  --exp-c figure2_experiments/outputs/figure2/exp_c \
-  --output figure2_experiments/outputs/figure2/figures/figure2_combined_long.pdf
+  --exp-a outputs/figure2/exp_a \
+  --exp-b outputs/figure2/exp_b_long \
+  --exp-c outputs/figure2/exp_c \
+  --output outputs/figure2/figures/figure2_combined_long.pdf
 ```
 
 ## Outputs and repository size
 
-Generated outputs live under `figure2_experiments/outputs/`. This Git repository
+Generated outputs live under the checkout’s `outputs/`. This Git repository
 includes the human-readable reports, compact CSV/JSON summaries, diagnostics,
 and final PDF/PNG figures required to inspect the saved conclusions.
 
